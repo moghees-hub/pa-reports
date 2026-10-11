@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body style="margin:0">
+<title>AI vs Lead Gen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: dark PA header with headline stats, then stacked sections on a light (or dark) body, one column on phones, two on wide screens */
+:root{
+  --head:#0B0B0B; --head-ink:#FFFFFF; --head-mute:#9AA0A6; --head-line:#2E3236;
+  --green:#7EC837; --green-ink:#4E9A1F; --blue:#3D6FD1;
+  --bg:#FFFFFF; --fg:#141414; --fg-2:#4A4F55; --mute:#7F868D; --line:#E3E6E0;
+  --tint:#EDF6E3; --foot:#F2F3F1; --chip:#D3D7D0;
+  --font:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121412; --fg:#ECEEEA; --fg-2:#B9BEB6; --mute:#8D948B; --line:#2A2E2A;
+  --tint:#1D2A15; --foot:#181B18; --chip:#363B35; --green-ink:#6DBB3A; --blue:#6E95E6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121412; --fg:#ECEEEA; --fg-2:#B9BEB6; --mute:#8D948B; --line:#2A2E2A;
+  --tint:#1D2A15; --foot:#181B18; --chip:#363B35; --green-ink:#6DBB3A; --blue:#6E95E6; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding-inline:20px}
+
+header{background:var(--head);color:var(--head-ink);padding-block:22px 26px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.top img{height:46px;width:auto}
+.tag{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--head-mute)}
+.kick{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--green);margin:0 0 8px}
+h1{font-size:clamp(30px,8.5vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 12px;text-wrap:balance}
+h1 .g{color:var(--green)}
+.lede{color:#C9CDD1;font-size:16px;margin:0;max-width:60ch}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;border-top:1px solid var(--head-line);margin-top:24px;padding-top:20px}
+@media (min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}}
+.st .l{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--head-mute)}
+.st .v{font-size:36px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:4px;font-variant-numeric:tabular-nums}
+.st .v.g{color:var(--green)}
+.st .s{font-size:13px;color:var(--head-mute);margin-top:2px}
+
+main{padding-block:28px 8px}
+.grid{display:grid;gap:34px}
+@media (min-width:860px){.grid{grid-template-columns:1fr 1fr;gap:40px 48px}}
+.grid > *{min-width:0}
+section{display:flex;flex-direction:column}
+.rule{width:44px;height:4px;background:var(--green);margin-bottom:10px}
+h2{font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0}
+.cap{font-size:13px;color:var(--mute);margin:2px 0 14px}
+p{margin:0 0 12px;color:var(--fg)}
+p:last-child{margin-bottom:0}
+
+.callout{background:var(--tint);border-left:5px solid var(--green-ink);padding:16px 18px}
+.callout .big{font-size:18px;font-weight:700;line-height:1.35}
+.callout p{font-size:15px}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--fg-2);margin-bottom:14px}
+.legend span{display:flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;flex:none}
+.sw.ai{background:var(--blue)} .sw.lg{background:var(--green-ink)}
+.metric{margin-bottom:16px}
+.metric .ml{font-size:15px;font-weight:600;margin-bottom:6px}
+.metric .ml small{font-weight:400;color:var(--mute);font-size:13px}
+.br{display:grid;grid-template-columns:1fr 52px;align-items:center;gap:10px;margin-bottom:3px}
+.br .track{height:16px}
+.br i{display:block;height:100%;border-radius:0 4px 4px 0}
+.br.ai i{background:var(--blue)} .br.lg i{background:var(--green-ink)}
+.br b{text-align:right;font-size:14px;font-variant-numeric:tabular-nums}
+.br.ai b{font-weight:500;color:var(--fg-2)}
+.br.lg b{font-weight:700}
+
+.pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.pts li{border-left:2px solid var(--line);padding-left:14px;font-size:15px}
+.pts .t{display:block;font-weight:700;margin-bottom:2px}
+.pts .k{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--mute);margin-top:4px}
+
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--mute);text-align:left;padding:0 0 8px;border-bottom:2px solid var(--fg)}
+th.n,td.n{text-align:right}
+td{padding:9px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+td.n{width:84px;color:var(--fg-2);white-space:nowrap}
+td.w{color:var(--fg);font-weight:700}
+tr.grp td{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green-ink);padding-top:16px;border-bottom:none}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--chip);border-radius:999px;padding:4px 11px;font-size:13px}
+.chip b{font-weight:700}
+
+footer{background:var(--foot);margin-top:36px;padding-block:20px 28px;font-size:13px;color:var(--fg-2)}
+footer p{color:var(--fg-2);font-size:13px;margin-bottom:10px}
+footer b{color:var(--fg)}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <img src="data:image/png;base64,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" alt="Physique Academy">
+      <div class="tag">AI VS LEAD GEN</div>
+    </div>
+    <p class="kick">SALES REPORT &middot; OCTOBER 2026</p>
+    <h1>Lead Gen is bringing <span class="g">better</span> leads</h1>
+    <p class="lede">How our human lead gen team compares with the AI setter we used before. Each side is measured at full strength over about 12 weeks.</p>
+    <div class="stats">
+      <div class="st"><div class="l">TURN UP</div><div class="v g">83%</div><div class="s">vs 61% with AI</div></div>
+      <div class="st"><div class="l">BUY ON THE CALL</div><div class="v">22%</div><div class="s">vs 15% with AI</div></div>
+      <div class="st"><div class="l">PER BOOKED CALL</div><div class="v">&pound;165</div><div class="s">vs &pound;57 with AI</div></div>
+      <div class="st"><div class="l">CALLS PER SALE</div><div class="v">7</div><div class="s">vs 15 with AI</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <section>
+      <div class="rule"></div>
+      <h2>What stands out</h2>
+      <p class="cap">In plain terms</p>
+      <div class="callout">
+        <p class="big">Lead Gen&rsquo;s leads are more serious. They turn up, they buy, and they buy bigger plans.</p>
+        <p>A closer needs about 7 booked calls to sign one Lead Gen client, against 15 with AI. That&rsquo;s half the wasted calls for the same result.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Quality, side by side</h2>
+      <p class="cap">The bold figure is the better one</p>
+      <div class="legend"><span><i class="sw ai"></i>AI &middot; 1 Jan to 22 Mar</span><span><i class="sw lg"></i>Lead Gen &middot; 20 Jul to 10 Oct</span></div>
+      <div class="metric"><div class="ml">Turned up to their call <small>(of calls marked)</small></div>
+        <div class="br ai"><div class="track"><i style="width:61%"></i></div><b>61%</b></div>
+        <div class="br lg"><div class="track"><i style="width:83%"></i></div><b>83%</b></div></div>
+      <div class="metric"><div class="ml">Bought after turning up</div>
+        <div class="br ai"><div class="track"><i style="width:15.4%"></i></div><b>15%</b></div>
+        <div class="br lg"><div class="track"><i style="width:22%"></i></div><b>22%</b></div></div>
+      <div class="metric"><div class="ml">Paid 6 months upfront <small>(of new clients)</small></div>
+        <div class="br ai"><div class="track"><i style="width:24%"></i></div><b>24%</b></div>
+        <div class="br lg"><div class="track"><i style="width:46%"></i></div><b>46%</b></div></div>
+      <div class="metric" style="margin-bottom:0"><div class="ml">Money per booked call <small>(first payments)</small></div>
+        <div class="br ai"><div class="track"><i style="width:29%"></i></div><b>&pound;57</b></div>
+        <div class="br lg"><div class="track"><i style="width:83%"></i></div><b>&pound;165</b></div></div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>The catch: volume</h2>
+      <p class="cap">Where AI still came out ahead</p>
+      <ul class="pts">
+        <li><span class="t">AI booked over 3 times as many calls.</span>About 50 a week against Lead Gen&rsquo;s 15. Even though most were weaker, the sheer number gave AI slightly more new clients and money each week.</li>
+        <li><span class="t">Lead Gen is doing more with far less.</span>If the team can book more calls while keeping this quality, it will overtake what AI brought in.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>What we compared</h2>
+      <p class="cap">Each side at full strength, similar length</p>
+      <ul class="pts">
+        <li><span class="t">AI setter: 1 Jan to 22 Mar 2026 (81 days)</span>Bookings started falling at the end of March and had all but stopped by late April.<span class="k">AI &middot; FULL STRENGTH</span></li>
+        <li><span class="t">Lead Gen: 20 Jul to 10 Oct 2026 (83 days)</span>From the day Amani joined Patrick, so both setters were working. Patrick started on his own on 7 July.<span class="k">LEAD GEN &middot; BOTH SETTERS</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>The full numbers</h2>
+      <p class="cap">Calls from GoHighLevel, sales from the Sales Dashboard</p>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th class="n">AI</th><th class="n">LEAD GEN</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="3">CALLS</td></tr>
+          <tr><td>Calls booked</td><td class="n w">578</td><td class="n">181</td></tr>
+          <tr><td>Calls per week</td><td class="n w">50</td><td class="n">15</td></tr>
+          <tr><td>Cancelled before the call</td><td class="n w">5%</td><td class="n">8%</td></tr>
+          <tr><td>Never marked showed or no-show</td><td class="n">27%</td><td class="n w">19%</td></tr>
+          <tr class="grp"><td colspan="3">SALES</td></tr>
+          <tr><td>New clients</td><td class="n w">37</td><td class="n">24</td></tr>
+          <tr><td>New clients per week</td><td class="n w">3.2</td><td class="n">2.0</td></tr>
+          <tr><td>On the cheapest plan (Lite)</td><td class="n">9</td><td class="n w">1</td></tr>
+          <tr class="grp"><td colspan="3">MONEY (FIRST PAYMENTS)</td></tr>
+          <tr><td>Total</td><td class="n w">&pound;31,466</td><td class="n">&pound;27,373</td></tr>
+          <tr><td>Per week</td><td class="n w">&pound;2,719</td><td class="n">&pound;2,309</td></tr>
+          <tr><td>Average per new client</td><td class="n">&pound;850</td><td class="n w">&pound;1,141</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Plans sold</h2>
+      <p class="cap">New clients by plan</p>
+      <div class="chips">
+        <span class="chip"><i class="sw lg"></i>Premium upfront <b>9</b></span>
+        <span class="chip"><i class="sw lg"></i>Premium monthly <b>12</b></span>
+        <span class="chip"><i class="sw lg"></i>Elite upfront <b>1</b></span>
+        <span class="chip"><i class="sw lg"></i>Inner Circle upfront <b>1</b></span>
+        <span class="chip"><i class="sw lg"></i>Lite monthly <b>1</b></span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i class="sw ai"></i>Premium upfront <b>6</b></span>
+        <span class="chip"><i class="sw ai"></i>Premium monthly <b>18</b></span>
+        <span class="chip"><i class="sw ai"></i>Elite upfront <b>1</b></span>
+        <span class="chip"><i class="sw ai"></i>Elite monthly <b>1</b></span>
+        <span class="chip"><i class="sw ai"></i>Inner Circle upfront <b>2</b></span>
+        <span class="chip"><i class="sw ai"></i>Lite monthly <b>9</b></span>
+      </div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Count the whole deal</h2>
+      <p class="cap">Not just the first payment</p>
+      <p>Right now each new client only counts as their first payment. A client who pays 6 months upfront is counted in full. A monthly client only counts as one month, even though most stay for several.</p>
+      <p>AI signed more monthly clients (28 of 37) than Lead Gen (13 of 24), so AI&rsquo;s money is <b>undercounted</b> more than Lead Gen&rsquo;s. If we assume every monthly client stays 6 months, the same as an upfront deal:</p>
+      <div class="tbl" style="margin:4px 0 16px"><table>
+        <thead><tr><th>WHOLE-DEAL ESTIMATE</th><th class="n">AI</th><th class="n">LEAD GEN</th></tr></thead>
+        <tbody>
+          <tr><td>Average value per client</td><td class="n">&pound;1,950</td><td class="n w">&pound;2,048</td></tr>
+          <tr><td>Per booked call</td><td class="n">&pound;131</td><td class="n w">&pound;296</td></tr>
+          <tr><td>Per week</td><td class="n w">&pound;6,235</td><td class="n">&pound;4,146</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout">
+        <p>Lead Gen still makes <b>more than double per booked call</b>. AI&rsquo;s weekly total pulls further ahead because of its volume.</p>
+        <p>Simple fix going forward: value monthly clients at their monthly fee times the average number of months clients actually stay.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>The season</h2>
+      <p class="cap">January is our busiest time of year</p>
+      <p>AI ran from January to March, the New Year rush, when more people than usual want to get in shape. That pushed its number of bookings up. Lead Gen ran over the summer, outside that peak. So part of the gap in volume is the time of year, not just the channel.</p>
+
+      <div class="rule" style="margin-top:26px"></div>
+      <h2>What&rsquo;s missing</h2>
+      <p class="cap">The real &ldquo;better value&rdquo; answer</p>
+      <p>This doesn&rsquo;t include what each option cost us: the AI agency fee against the setters&rsquo; pay. Adding that tells us the cost of each new client, which settles which channel is better value.</p>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Next steps</h2>
+      <p class="cap">To keep improving Lead Gen</p>
+      <ul class="pts">
+        <li><span class="t">Book more calls, keep the quality.</span>Volume is the only thing holding Lead Gen back.</li>
+        <li><span class="t">Mark every call.</span>Closers should mark each call as showed or no-show so the numbers stay accurate.</li>
+        <li><span class="t">Re-run on 18 October.</span>Lead Gen will then have a full 90 days, with more October calls marked.</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Caveat.</b> Some calls were never marked as showed or no-show (27% for AI, 19% for Lead Gen), so the turn-up rates use the calls that were marked. Sales use the lead source on the Sales Dashboard. Most match a call on that channel&rsquo;s calendar (32 of 37 for AI, 20 of 24 for Lead Gen).</p>
+    <p><b>How this was worked out.</b> Calls come from the AI calendar (&ldquo;Consultation Call Booking&rdquo;) and the Lead Gen calendar (&ldquo;Physique Academy Consultation&rdquo;) in GoHighLevel. Sales and first payments come from the Sales Dashboard, converted to &pound;. &ldquo;Turned up&rdquo; is showed out of showed plus no-show. &ldquo;Bought&rdquo; is new clients out of calls that showed.</p>
+  </div>
+</footer>
+
+</body>
+</html>
