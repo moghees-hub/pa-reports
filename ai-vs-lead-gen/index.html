@@ -94,6 +94,26 @@ tr.grp td{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--green-i
 footer{background:var(--foot);margin-top:36px;padding-block:20px 28px;font-size:13px;color:var(--fg-2)}
 footer p{color:var(--fg-2);font-size:13px;margin-bottom:10px}
 footer b{color:var(--fg)}
+/* pinch-of-salt flag */
+:root{--flag-bg:#FFF4D1;--flag-bar:#E5A100}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--flag-bg:#2B2410;--flag-bar:#E5A100}}
+:root[data-theme="dark"]{--flag-bg:#2B2410;--flag-bar:#E5A100}
+.flag{grid-column:1/-1;background:var(--flag-bg);border-left:5px solid var(--flag-bar);padding:16px 18px}
+.flag .ft{font-size:18px;font-weight:700;line-height:1.35;margin-bottom:6px}
+.flag p{font-size:15px}
+/* follow-up: the two setters */
+:root{--amani:#3B4046}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--amani:#A9B0B7}}
+:root[data-theme="dark"]{--amani:#A9B0B7}
+.sw.pa{background:var(--green-ink)} .sw.am{background:var(--amani)}
+.br.pa i{background:var(--green-ink)} .br.am i{background:var(--amani)}
+.br.pa b,.br.am b{font-weight:700;color:var(--fg)}
+.follow{grid-column:1/-1;background:var(--head);color:var(--head-ink);margin-inline:-20px;padding:26px 20px 24px;margin-top:10px}
+@media (min-width:960px){.follow{margin-inline:0;border-radius:6px;padding-inline:28px}}
+.follow h2{font-size:clamp(26px,7vw,36px);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:0 0 10px;text-wrap:balance}
+.follow h2 .g{color:var(--green)}
+.follow .stats{margin-top:20px}
+.follow .st .v{font-size:clamp(21px,6vw,28px);white-space:nowrap}
 </style>
 
 <header>
@@ -107,8 +127,8 @@ footer b{color:var(--fg)}
     <p class="lede">How our human lead gen team compares with the AI setter we used before. Each side is measured at full strength over about 12 weeks.</p>
     <div class="stats">
       <div class="st"><div class="l">TURN UP</div><div class="v g">83%</div><div class="s">vs 61% with AI</div></div>
-      <div class="st"><div class="l">BUY ON THE CALL</div><div class="v">22%</div><div class="s">vs 15% with AI</div></div>
-      <div class="st"><div class="l">PER BOOKED CALL</div><div class="v">&pound;165</div><div class="s">vs &pound;57 with AI</div></div>
+      <div class="st"><div class="l">CLOSE RATE</div><div class="v">23%</div><div class="s">vs 15% with AI</div></div>
+      <div class="st"><div class="l">PER BOOKED CALL</div><div class="v">&pound;166</div><div class="s">vs &pound;57 with AI</div></div>
       <div class="st"><div class="l">CALLS PER SALE</div><div class="v">7</div><div class="s">vs 15 with AI</div></div>
     </div>
   </div>
@@ -116,6 +136,11 @@ footer b{color:var(--fg)}
 
 <main class="wrap">
   <div class="grid">
+
+    <section class="flag">
+      <p class="ft">Take the turn-up rates with a pinch of salt.</p>
+      <p>Not every call was marked properly. About 1 in 5 Lead Gen calls and over 1 in 4 AI calls were never marked as showed or no-show, so these rates only use the calls that were. We now mark every call in Slack with an emoji, so from here on the turn-up and no-show figures will be much clearer.</p>
+    </section>
 
     <section>
       <div class="rule"></div>
@@ -131,19 +156,19 @@ footer b{color:var(--fg)}
       <div class="rule"></div>
       <h2>Quality, side by side</h2>
       <p class="cap">The bold figure is the better one</p>
-      <div class="legend"><span><i class="sw ai"></i>AI &middot; 1 Jan to 22 Mar</span><span><i class="sw lg"></i>Lead Gen &middot; 20 Jul to 10 Oct</span></div>
+      <div class="legend"><span><i class="sw ai"></i>AI &middot; 1 Jan to 22 Mar</span><span><i class="sw lg"></i>Lead Gen &middot; 20 Jul to 11 Oct</span></div>
       <div class="metric"><div class="ml">Turned up to their call <small>(of calls marked)</small></div>
         <div class="br ai"><div class="track"><i style="width:61%"></i></div><b>61%</b></div>
         <div class="br lg"><div class="track"><i style="width:83%"></i></div><b>83%</b></div></div>
       <div class="metric"><div class="ml">Bought after turning up</div>
         <div class="br ai"><div class="track"><i style="width:15.4%"></i></div><b>15%</b></div>
-        <div class="br lg"><div class="track"><i style="width:22%"></i></div><b>22%</b></div></div>
+        <div class="br lg"><div class="track"><i style="width:22.9%"></i></div><b>23%</b></div></div>
       <div class="metric"><div class="ml">Paid 6 months upfront <small>(of new clients)</small></div>
         <div class="br ai"><div class="track"><i style="width:24%"></i></div><b>24%</b></div>
-        <div class="br lg"><div class="track"><i style="width:46%"></i></div><b>46%</b></div></div>
+        <div class="br lg"><div class="track"><i style="width:44%"></i></div><b>44%</b></div></div>
       <div class="metric" style="margin-bottom:0"><div class="ml">Money per booked call <small>(first payments)</small></div>
         <div class="br ai"><div class="track"><i style="width:29%"></i></div><b>&pound;57</b></div>
-        <div class="br lg"><div class="track"><i style="width:83%"></i></div><b>&pound;165</b></div></div>
+        <div class="br lg"><div class="track"><i style="width:83%"></i></div><b>&pound;166</b></div></div>
     </section>
 
     <section>
@@ -162,7 +187,7 @@ footer b{color:var(--fg)}
       <p class="cap">Each side at full strength, similar length</p>
       <ul class="pts">
         <li><span class="t">AI setter: 1 Jan to 22 Mar 2026 (81 days)</span>Bookings started falling at the end of March and had all but stopped by late April.<span class="k">AI &middot; FULL STRENGTH</span></li>
-        <li><span class="t">Lead Gen: 20 Jul to 10 Oct 2026 (83 days)</span>From the day Amani joined Patrick, so both setters were working. Patrick started on his own on 7 July.<span class="k">LEAD GEN &middot; BOTH SETTERS</span></li>
+        <li><span class="t">Lead Gen: 20 Jul to 11 Oct 2026 (84 days)</span>From the day Amani joined Patrick, so both setters were working. Patrick started on his own on 7 July.<span class="k">LEAD GEN &middot; BOTH SETTERS</span></li>
       </ul>
     </section>
 
@@ -179,13 +204,13 @@ footer b{color:var(--fg)}
           <tr><td>Cancelled before the call</td><td class="n w">5%</td><td class="n">8%</td></tr>
           <tr><td>Never marked showed or no-show</td><td class="n">27%</td><td class="n w">19%</td></tr>
           <tr class="grp"><td colspan="3">SALES</td></tr>
-          <tr><td>New clients</td><td class="n w">37</td><td class="n">24</td></tr>
-          <tr><td>New clients per week</td><td class="n w">3.2</td><td class="n">2.0</td></tr>
-          <tr><td>On the cheapest plan (Lite)</td><td class="n">9</td><td class="n w">1</td></tr>
+          <tr><td>New clients</td><td class="n w">37</td><td class="n">25</td></tr>
+          <tr><td>New clients per week</td><td class="n w">3.2</td><td class="n">2.1</td></tr>
+          <tr><td>On the cheapest plan (Lite)</td><td class="n">9</td><td class="n w">2</td></tr>
           <tr class="grp"><td colspan="3">MONEY (FIRST PAYMENTS)</td></tr>
-          <tr><td>Total</td><td class="n w">&pound;31,466</td><td class="n">&pound;27,373</td></tr>
-          <tr><td>Per week</td><td class="n w">&pound;2,719</td><td class="n">&pound;2,309</td></tr>
-          <tr><td>Average per new client</td><td class="n">&pound;850</td><td class="n w">&pound;1,141</td></tr>
+          <tr><td>Total</td><td class="n w">&pound;31,463</td><td class="n">&pound;27,558</td></tr>
+          <tr><td>Per week</td><td class="n w">&pound;2,719</td><td class="n">&pound;2,297</td></tr>
+          <tr><td>Average per new client</td><td class="n">&pound;850</td><td class="n w">&pound;1,102</td></tr>
         </tbody>
       </table></div>
     </section>
@@ -199,7 +224,7 @@ footer b{color:var(--fg)}
         <span class="chip"><i class="sw lg"></i>Premium monthly <b>12</b></span>
         <span class="chip"><i class="sw lg"></i>Elite upfront <b>1</b></span>
         <span class="chip"><i class="sw lg"></i>Inner Circle upfront <b>1</b></span>
-        <span class="chip"><i class="sw lg"></i>Lite monthly <b>1</b></span>
+        <span class="chip"><i class="sw lg"></i>Lite monthly <b>2</b></span>
       </div>
       <div class="chips">
         <span class="chip"><i class="sw ai"></i>Premium upfront <b>6</b></span>
@@ -216,13 +241,13 @@ footer b{color:var(--fg)}
       <h2>Count the whole deal</h2>
       <p class="cap">Not just the first payment</p>
       <p>Right now each new client only counts as their first payment. A client who pays 6 months upfront is counted in full. A monthly client only counts as one month, even though most stay for several.</p>
-      <p>AI signed more monthly clients (28 of 37) than Lead Gen (13 of 24), so AI&rsquo;s money is <b>undercounted</b> more than Lead Gen&rsquo;s. If we assume every monthly client stays 6 months, the same as an upfront deal:</p>
+      <p>AI signed more monthly clients (28 of 37) than Lead Gen (14 of 25), so AI&rsquo;s money is <b>undercounted</b> more than Lead Gen&rsquo;s. If we assume every monthly client stays 6 months, the same as an upfront deal:</p>
       <div class="tbl" style="margin:4px 0 16px"><table>
         <thead><tr><th>WHOLE-DEAL ESTIMATE</th><th class="n">AI</th><th class="n">LEAD GEN</th></tr></thead>
         <tbody>
-          <tr><td>Average value per client</td><td class="n">&pound;1,950</td><td class="n w">&pound;2,048</td></tr>
-          <tr><td>Per booked call</td><td class="n">&pound;131</td><td class="n w">&pound;296</td></tr>
-          <tr><td>Per week</td><td class="n w">&pound;6,235</td><td class="n">&pound;4,146</td></tr>
+          <tr><td>Average value per client</td><td class="n">&pound;1,950</td><td class="n w">&pound;2,011</td></tr>
+          <tr><td>Per booked call</td><td class="n">&pound;131</td><td class="n w">&pound;303</td></tr>
+          <tr><td>Per week</td><td class="n w">&pound;6,234</td><td class="n">&pound;4,189</td></tr>
         </tbody>
       </table></div>
       <div class="callout">
@@ -250,8 +275,94 @@ footer b{color:var(--fg)}
       <ul class="pts">
         <li><span class="t">Book more calls, keep the quality.</span>Volume is the only thing holding Lead Gen back.</li>
         <li><span class="t">Mark every call.</span>Closers should mark each call as showed or no-show so the numbers stay accurate.</li>
-        <li><span class="t">Re-run on 18 October.</span>Lead Gen will then have a full 90 days, with more October calls marked.</li>
+        <li><span class="t">Re-run after 18 October.</span>Lead Gen will then have a full 90 days, with more October calls marked.</li>
       </ul>
+    </section>
+
+    <section class="follow" id="setters">
+      <p class="kick">FOLLOW-UP &middot; THE TWO SETTERS</p>
+      <h2>Patrick and Amani are <span class="g">neck and neck</span></h2>
+      <p class="lede">The same Lead Gen period (20 Jul to 11 Oct), split by who set the call. Both setters signed 12 new clients from about the same number of calls.</p>
+      <div class="stats">
+        <div class="st"><div class="l">NEW CLIENTS</div><div class="v g">12 / 12</div><div class="s">Patrick / Amani</div></div>
+        <div class="st"><div class="l">TURN UP</div><div class="v">86% / 82%</div><div class="s">Patrick / Amani</div></div>
+        <div class="st"><div class="l">CLOSE RATE</div><div class="v">24% / 23%</div><div class="s">Patrick / Amani</div></div>
+        <div class="st"><div class="l">PER BOOKED CALL</div><div class="v">&pound;146 / &pound;182</div><div class="s">Patrick / Amani</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>What stands out</h2>
+      <p class="cap">In plain terms</p>
+      <div class="callout">
+        <p class="big">There is very little between them. Both bring in good leads, and both close about 1 in 4 calls that show up.</p>
+        <p>Patrick&rsquo;s calls turn up a little more often. Amani books a few more calls and has made more money per call.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Side by side</h2>
+      <p class="cap">Lead Gen calls from 20 Jul to 11 Oct</p>
+      <div class="legend"><span><i class="sw pa"></i>Patrick</span><span><i class="sw am"></i>Amani</span></div>
+      <div class="metric"><div class="ml">Calls booked per week</div>
+        <div class="br pa"><div class="track"><i style="width:68%"></i></div><b>6.8</b></div>
+        <div class="br am"><div class="track"><i style="width:73%"></i></div><b>7.3</b></div></div>
+      <div class="metric"><div class="ml">Turned up to their call <small>(of calls marked)</small></div>
+        <div class="br pa"><div class="track"><i style="width:86%"></i></div><b>86%</b></div>
+        <div class="br am"><div class="track"><i style="width:82%"></i></div><b>82%</b></div></div>
+      <div class="metric"><div class="ml">Bought after turning up</div>
+        <div class="br pa"><div class="track"><i style="width:24%"></i></div><b>24%</b></div>
+        <div class="br am"><div class="track"><i style="width:22.6%"></i></div><b>23%</b></div></div>
+      <div class="metric" style="margin-bottom:0"><div class="ml">Money per booked call <small>(first payments)</small></div>
+        <div class="br pa"><div class="track"><i style="width:73%"></i></div><b>&pound;146</b></div>
+        <div class="br am"><div class="track"><i style="width:91%"></i></div><b>&pound;182</b></div></div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Read the money with care</h2>
+      <p class="cap">Small numbers, one big deal</p>
+      <ul class="pts">
+        <li><span class="t">Amani&rsquo;s lead in money comes mostly from one deal.</span>One Inner Circle client paid &pound;4,999 upfront. Without it, Patrick would be slightly ahead (&pound;10,937 against &pound;9,923).</li>
+        <li><span class="t">12 sales each is a small number.</span>One or two deals can swing the figures either way. The turn-up and buy rates are the fairer comparison for now.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Setters: the full numbers</h2>
+      <p class="cap">Bold is the better figure</p>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th class="n">PATRICK</th><th class="n">AMANI</th></tr></thead>
+        <tbody>
+          <tr><td>Calls booked</td><td class="n">81</td><td class="n w">88</td></tr>
+          <tr><td>Cancelled before the call</td><td class="n">7%</td><td class="n">7%</td></tr>
+          <tr><td>Never marked showed or no-show</td><td class="n">21%</td><td class="n w">19%</td></tr>
+          <tr><td>New clients</td><td class="n">12</td><td class="n">12</td></tr>
+          <tr><td>Booked calls per sale</td><td class="n w">6</td><td class="n">7</td></tr>
+          <tr><td>Paid 6 months upfront</td><td class="n">5</td><td class="n">5</td></tr>
+          <tr><td>First payments, total</td><td class="n">&pound;10,937</td><td class="n w">&pound;14,922</td></tr>
+          <tr><td>Average per new client</td><td class="n">&pound;911</td><td class="n w">&pound;1,243</td></tr>
+          <tr><td>Whole deal per booked call</td><td class="n">&pound;298</td><td class="n w">&pound;319</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="rule"></div>
+      <h2>Calls booked by month</h2>
+      <p class="cap">Amani led over the summer, Patrick since September</p>
+      <div class="tbl"><table>
+        <thead><tr><th></th><th class="n">PATRICK</th><th class="n">AMANI</th></tr></thead>
+        <tbody>
+          <tr><td>July (from the 20th)</td><td class="n">8</td><td class="n w">14</td></tr>
+          <tr><td>August</td><td class="n">34</td><td class="n w">39</td></tr>
+          <tr><td>September</td><td class="n w">30</td><td class="n">27</td></tr>
+          <tr><td>October (to the 11th)</td><td class="n w">9</td><td class="n">8</td></tr>
+        </tbody>
+      </table></div>
     </section>
 
   </div>
@@ -259,8 +370,9 @@ footer b{color:var(--fg)}
 
 <footer>
   <div class="wrap">
-    <p><b>Caveat.</b> Some calls were never marked as showed or no-show (27% for AI, 19% for Lead Gen), so the turn-up rates use the calls that were marked. Sales use the lead source on the Sales Dashboard. Most match a call on that channel&rsquo;s calendar (32 of 37 for AI, 20 of 24 for Lead Gen).</p>
+    <p><b>Sales.</b> Sales use the lead source on the Sales Dashboard. Most match a call on that channel&rsquo;s calendar (32 of 37 for AI, 20 of 25 for Lead Gen).</p>
     <p><b>How this was worked out.</b> Calls come from the AI calendar (&ldquo;Consultation Call Booking&rdquo;) and the Lead Gen calendar (&ldquo;Physique Academy Consultation&rdquo;) in GoHighLevel. Sales and first payments come from the Sales Dashboard, converted to &pound;. &ldquo;Turned up&rdquo; is showed out of showed plus no-show. &ldquo;Bought&rdquo; is new clients out of calls that showed.</p>
+    <p><b>How calls were credited to setters.</b> Each call goes to the setter who owns the lead in the lead tracker, or whose booking link was used: 169 of the 181 calls (93%). The other 12 calls and 1 sale are left out. Each sale goes to the setter whose call has the same email. Calls by month use the date of the call.</p>
   </div>
 </footer>
 
